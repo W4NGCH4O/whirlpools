@@ -35,6 +35,8 @@ pub fn collect_rewards_quote(
     transfer_fee_2: Option<TransferFee>,
     transfer_fee_3: Option<TransferFee>,
 ) -> Result<CollectRewardsQuote, CoreError> {
+    println!("CURRENT TIME STAMP {}", current_timestamp);
+    println!("LAST UPDATED {}", whirlpool.reward_last_updated_timestamp);
     let timestamp_delta = current_timestamp - whirlpool.reward_last_updated_timestamp;
     let transfer_fees = [transfer_fee_1, transfer_fee_2, transfer_fee_3];
     let mut reward_quotes: [CollectRewardQuote; NUM_REWARDS] =
